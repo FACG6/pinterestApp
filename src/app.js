@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const routes = require('./routes/index');
+const { signup , home , login , profile} = require('./routes/index');
 
 const app = express();
 
@@ -13,12 +13,12 @@ app.engine(
     extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
-    defaultLayout: 'main',
-    helpers,
+    defaultLayout: 'main'
   }),
 );
 
 app.set('port', process.env.PORT || 3000);
-app.use(routes);
+app.use('/', home);
+app.use('/sign-up', signup);
 
 module.exports = app;
