@@ -18,6 +18,7 @@
   "homepage": "https://github.com/FACG6/pinterestApp#readme",
   "dependencies": {
     "bcrypt": "^3.0.4",
+    "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
@@ -27,7 +28,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "nodemon": "^1.18.10"
