@@ -20,9 +20,10 @@ app.use((req, res, next) => {
       if (err) {
         request.cookies.auth=err;
         next();
+      }else{
+        request.cookies.auth=decoded;
+        next();
       }
-      request.cookies.auth=decoded;
-      next();
     });
   }
 });
