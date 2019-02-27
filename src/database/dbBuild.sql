@@ -10,7 +10,7 @@ create TABLE users(
 );
 create TABLE images(
     id serial primary key,
-    url text,
+    link text,
     user_id INTEGER REFERENCES users(id)
 );
 insert into users (username, name, password)
