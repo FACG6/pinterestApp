@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use((req, res, next) => {
   if (!req.cookies.auth) {
-    req.cookies.auth = false;
+    req.cookies.auth = false; 
     next();
   } else {
-    verify(req.cookies.auth, process.env.SECRET, (err, decoded) => {
+    verify(req.cookies.data, process.env.SECRET, (err, decoded) => {
       if (err) {
         res.clearCookie('');
         next();

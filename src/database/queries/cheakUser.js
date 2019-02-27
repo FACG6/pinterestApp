@@ -16,5 +16,4 @@ const checkUser = (userName, password, cb) => {
     })
 };
 
-
-module.exports = {checkUser,checkIfUserExist };
+module.exports = { checkIfUserExist, checkUser};

@@ -6,7 +6,7 @@ exports.get = (request, response) => {
    if (request.cookies.auth) {
       response.redirect('/')
    }
-   res.render('login', { js: './public/js/domLogin.js', css: './public/css/login.css' });
+   response.render('login', { js: './public/js/domLogin.js', css: './public/css/login.css' });
 };
 
 exports.post = (request, response) => {
