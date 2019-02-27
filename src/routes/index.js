@@ -1,10 +1,13 @@
 const express = require('express');
+const router = express.Router();
 const login = require('./login');
 const signup = require('./signup');
 const home = require('./home');
-const router = express.Router()
 
+router.get('/', home.get);
 router.get('/login', login.get);
 router.post('/login', login.post);
+router.get('/sign-up', signup.handler);
+router.post('/sign-up', signup.confirmedHandler);
 
-module.exports = router
+module.exports = router;

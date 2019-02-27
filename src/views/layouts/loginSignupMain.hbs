@@ -6,18 +6,11 @@
 </head>
 <body>
 	<header>
-		{{{body}}}
+	{{!-- {{}} --}}
 	</header>
 
 	<main>
-		<input type="text" name="url" class="imgUrl">
-		<button>add img</button>
-		{{!-- {{#each res}}
-		<img class="imgs" src="{{res.url}}">
-		{{#if id === res.id}}
-		<button>delete</button>
-		{{/if}}
-		{{/each}} --}}
+		{{{ body }}}
 	</main>
 
 	<footer>
@@ -26,6 +19,4 @@
 
 	<script type="text/javascript" src="{{ js }}"></script>
 </body>
-
 </html>
-

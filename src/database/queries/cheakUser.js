@@ -1,12 +1,20 @@
-const connection = require('../dbConnection');
+const dbconnection = require('../dbConnection');
 
-const checkUser = (userName, password, cb) => {
-  const sql = 'SELECT userName, password,id from users where userName = ($1) AND password = ($2)';
-  const values = [userName, password];
-  connection.query(sql, values, (err, result) => {
+const checkIfUserExist = (username, cb) => {
+  const sql = 'SELECT username id FROM users WHERE username = ($1)';
+  const values = [username];
+  dbconnection.query(sql, values, (err, result) => {
+    if (err) cb(err);
+    cb(null, result.rows[0]);
+  });
+};
+
+const checkUser = (userName, cb) => {
+  const sql = 'SELECT * from users where userName = ($1);'
+  const values = [userName];
+  dbconnection.query(sql, values, (err, result) => {
     cb(err, result.rows[0]);
   });
 };
 
-
-module.exports = checkUser;
+module.exports = { checkIfUserExist, checkUser };
