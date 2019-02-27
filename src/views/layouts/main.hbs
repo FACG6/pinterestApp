@@ -6,12 +6,16 @@
 </head>
 <body>
 	<header>
+		<div class="header">
+			<div class="header--logo"> Pintrest App </div>
+			<br><br>
+		</div> 
 		{{{body}}}
 	</header>
 
 	<main>
 		<input type="text" name="url" class="imgUrl">
-		<button>add img</button>
+		<button id="addImgeBtn">add img</button>
 		{{!-- {{#each res}}
 		<img class="imgs" src="{{res.url}}">
 		{{#if id === res.id}}
