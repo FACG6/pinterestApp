@@ -1,18 +1,12 @@
 const bcrypt = require('bcryptjs');
 const dbconnection = require('../dbConnection');
 
-const addUser = (username, password, cb) => {
-    bcrypt.genSalt(5, (err, salt) => {
-        if (err) res.status(500).send('<h1>500 Server Error</h1>');
-        bcrypt.hash(password, salt, (err, hashed) => {
-            if (err) res.status(500).send('<h1>500 Server Error</h1>');
-            const sql = 'INSERT INTO users (username,password) VALUES ($1,$2)';
-            const values = [username, hashed];
-            dbconnection.query(sql, values, (err, result) => {
-                if (err) cb(err);
-                cb(null, 'Successfully added');
-            })
-        })
+const addUser = (username, hashed, cb) => {
+    const sql = 'INSERT INTO users (username,name,password) VALUES ($1,$3,$2) returing *';
+    const values = [username,username, hashed];
+    dbconnection.query(sql, values, (err, result) => {
+        console.log(result);
+        cb(err, result);
     })
 }
 
