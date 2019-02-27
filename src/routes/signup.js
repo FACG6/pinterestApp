@@ -22,7 +22,7 @@ const confirmedHandler = (req, res) => {
             } else {
                 addUser(allData.userName, allData.password, (error, result) => {
                     if(error) res.send('Try again please');
-                    res.render('signup', { layout: 'loginSignup', title: 'SignUp' })
+                    res.render('signup', { layout: 'loginSignupMain', title: 'SignUp' })
                 })
             }
         })
