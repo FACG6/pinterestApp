@@ -5,7 +5,6 @@ const path = require('path');
 const routes = require('./routes');
 const { verify } = require('jsonwebtoken');
 const compression = require('compression');
-const { signup, home, login, profile } = require('./routes/index');
 const helpers = require("./views/helpers/index");
 
 const app = express();

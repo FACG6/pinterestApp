@@ -11,5 +11,3 @@ router.get('/sign-up', signup.handler);
 router.post('/sign-up', signup.confirmedHandler);
 
 module.exports = router;
-
-
