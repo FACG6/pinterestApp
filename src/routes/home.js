@@ -4,7 +4,7 @@ const router = express.Router();
 
 const handler = router.get('/', (req, res) => 
 
-	 res.render('home', {js: './public/js/domHome.js', css: './public/css/style.css'})
+	 res.render('home', {js: './js/domHome.js', css: './css/style.css'})
  ) ;
 
 module.exports = { handler } ; 
