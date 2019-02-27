@@ -4,7 +4,7 @@ const handler = (req, res) => {
 	 res.render('home', {js: './js/domHome.js', css: './css/style.css'})
 }
 
-module.exports = { handler } ; 
+ 
 
 exports.get = (req, res) => {
 	if(req.cookies.auth)
@@ -14,3 +14,4 @@ exports.get = (req, res) => {
 };
 
 
+module.exports = { handler } ;
