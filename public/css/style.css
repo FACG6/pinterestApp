@@ -1,0 +1,32 @@
+/* @import  */ 
+
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3rem;
+}
+
+.header--logo {
+	float: left;
+}
+
+.header--loginSignUp {
+	float: right;
+	list-style-type: none;
+}
+
+..header--loginSignUp, .header--logo {
+	line-height: 3rem;
+} 
+
+.header--login--btn, .header--signUp--btn {
+	float: left;
+}

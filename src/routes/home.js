@@ -1,6 +1,12 @@
+const express = require('express');
+const app = express();
+const router = express.Router();
 
-const handler = (req,res)=>{
-    res.render('home');
-};
+const handler = router.get('/', (req, res) => 
 
-module.exports = {handler};
+	 res.render('home', {js: './js/domHome.js', css: './css/style.css'})
+ ) ;
+
+module.exports = { handler } ; 
+
+
