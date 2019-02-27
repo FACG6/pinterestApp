@@ -15,11 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  if (!req.cookies.auth) {
-    req.cookies.auth = false;
-    next();
-  } else {
-    verify(req.cookies.auth, process.env.SECRET, (err, decoded) => {
+  if (req.cookies.jwt) {
+    verify(req.cookies.jwt, process.env.SECRET, (err, decoded) => {
       if (err) {
         res.clearCookie('');
         next();
@@ -28,9 +25,12 @@ app.use((req, res, next) => {
         next();
       }
     });
+  } else {
+    req.cookies.auth = false;
+    next();
   }
 });
- 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.engine(

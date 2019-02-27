@@ -15,5 +15,5 @@ create TABLE images(
 );
 insert into users (username, name, password)
 values
-    ('dena', 'dena', '$2a$05$lKh/EC5Pk9l2MmoAW7glu.TF6MqyBgZag2AlKC69vHxd2d9zBLPZu' ); 
+    ('dena', 'dena', '$2b$10$bdltXPJZEX.u9jyPCEqY9eVmg6.z8Pqc.TdyBAeoPDpRWKpiUV7bG' ); 
 COMMIT;
