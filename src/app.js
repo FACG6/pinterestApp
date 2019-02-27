@@ -14,13 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use((req, res, next) => {
-  console.log(222, req.cookies);
-  if (!req.cookies.auth) {
+  if (!req.cookies.data) {
     req.cookies.auth = false;
-    console.log(6565656,req.cookies);
     next();
   } else {
-    verify(req.cookies.auth, process.env.SECRET, (err, decoded) => {
+    verify(req.cookies.data, process.env.SECRET, (err, decoded) => {
       if (err) {
         req.cookies.auth = err;
         next();
