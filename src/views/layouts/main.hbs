@@ -8,14 +8,11 @@
 	<header>
 		<div class="header">
 			<div class="header--logo"> Pintrest App </div>
-			<ul class="header--loginSignUp">
-				<li>
-					<button class="header--login--btn"> Login </button>
-				</li>
-				<li>
-					<button class="header--signUp--btn"> Sign Up </button>
-				</li>
-			</ul>
+			{{#if auth }}
+				{{ homeHeader }}
+			  {{else}}
+			     {{ profileHeader }}
+			{{/if}}
 		</div>
 	</header>
 
