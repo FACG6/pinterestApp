@@ -7,7 +7,7 @@ const handler = (req, res) => {
     if (req.cookies.auth) {
         res.redirect('/profile');
     } else {
-        res.render('signup', { layout: 'loginAndSignup', title: 'SignUp'});
+        res.render('signup', { layout: 'loginSignupMain', title: 'SignUp',js:'./js/domSignup.js',css:'./css/signup.css'});
     }
 };
 
