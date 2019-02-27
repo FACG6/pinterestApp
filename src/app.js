@@ -3,25 +3,27 @@ const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const compression = require('compression');
-const routes = require('./routes/index');
+const routes = require('./routes');
 const { verify } = require('jsonwebtoken');
 
 const app = express();
 app.use(compression());
+app.use(express.static(path.join(__dirname, '..')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use((req, res, next) => {
   if (!req.cookies.data) {
-     request.cookies.auth = false;
+     req.cookies.auth = false;
      next();
   }else{
     verify(data, process.env.SECRET, (err, decoded) => {
       if (err) {
-        request.cookies.auth=err;
+        req.cookies.auth=err;
         next();
       }else{
-        request.cookies.auth=decoded;
+        req.cookies.auth=decoded;
         next();
       }
     });

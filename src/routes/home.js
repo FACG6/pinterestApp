@@ -1,0 +1,10 @@
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+const handler = router.get('/', (req, res) => 
+
+	 res.render('home', {js: './public/js/domHome.js', css: './public/css/style.css'})
+ ) ;
+
+module.exports = { handler } ; 
