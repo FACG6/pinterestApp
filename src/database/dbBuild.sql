@@ -15,5 +15,6 @@ create TABLE images(
 );
 insert into users (username, name, password)
 values
-    ('dena', 'dena', '123' ); 
+    ('dena', 'dena', '123' );
+     
 COMMIT;
