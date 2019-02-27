@@ -2,9 +2,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const compression = require('compression');
-const routes = require('./routes/index');
 const { verify } = require('jsonwebtoken');
+const compression = require('compression');
+const { signup, home, login, profile } = require('./routes/index');
+const routes = require('./routes');
+const helpers = require("./views/helpers/index");
 
 const app = express();
 app.use(compression());
@@ -18,10 +20,10 @@ app.use((req, res, next) => {
   } else {
     verify(req.cookies.data, process.env.SECRET, (err, decoded) => {
       if (err) {
-        request.cookies.auth = err;
+        req.cookies.auth = err;
         next();
       } else {
-        request.cookies.auth = decoded;
+        req.cookies.auth = decoded;
         next();
       }
     });
@@ -36,10 +38,12 @@ app.engine(
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
+    helpers
   }),
 );
 
 app.set('port', process.env.PORT || 3000);
 app.use(routes);
 
+app.disable('x-powered-by');
 module.exports = app;
