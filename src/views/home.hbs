@@ -1,5 +1,8 @@
-<section id="container">
-	<h1>hello</h1>
-</section>
-
-
+<div class="header">
+			<div class="header--logo"> Pintrest App </div>
+			{{#if auth }}
+			     {{ profileHeader }}				
+			  {{else}}
+				 {{ homeHeader }}
+			{{/if}}
+		</div>
