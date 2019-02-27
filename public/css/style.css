@@ -23,10 +23,13 @@ body {
 	list-style-type: none;
 }
 
-..header--loginSignUp, .header--logo {
+.header--loginSignUp, .header--logo {
 	line-height: 3rem;
 } 
 
 .header--login--btn, .header--signUp--btn {
 	float: left;
+}
+.imgUrl{
+	margin-top: 50px;
 }
