@@ -1,8 +1,6 @@
-const express = require('express');
-const router = express.Router();
 
-router.get('/',(req,res)=>{
+const handler = (req,res)=>{
     res.render('home');
-})
+};
 
-module.exports = router;
+module.exports = {handler};

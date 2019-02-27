@@ -1,30 +1,30 @@
-//const checkIfUserNameIsUsed = require('../database/queries/checkIfUserNameIsUsed');//Query
+const {checkIfUserExist} = require('../database/queries/cheakUser');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+const handler = (req, res) => {
+    console.log(66666,req.cookies);
     if (req.cookies.auth) {
-        res.redirect('/');
+        res.redirect('/profile');
     } else {
         res.render('signup', { layout: 'loginAndSignup', title: 'SignUp'});
     }
-});
+};
 
-router.post('/', (req, res) => {
-    if (req.cookies.auth) {
+const confirmedHandler = (req, res) => {
+    if (req.auth) {
         res.redirect('/');
     } else {
         const allData = req.body;
-        // checkIfUserNameIsUsed(allData.userName,allData.password,(err,result)=>{
-        // if (err) {
-        //     res.status(500).send(<h1>500 Server Error</h1>);
-        // } else {
-        //     res.render('signup', { layout: 'loginSignup', title: 'SignUp' })
-        // }
-        // })
-
+        checkIfUserExist(allData.userName,allData.password,(err,result)=>{
+        if (err) {
+            res.status(500).send('<h1>500 Server Error</h1>');
+        } else {
+            res.render('signup', { layout: 'loginSignup', title: 'SignUp' })
+        }
+        })
     }
 
-})
+}
 
-module.exports = router;
+module.exports = { handler , confirmedHandler }
