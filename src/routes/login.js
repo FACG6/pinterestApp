@@ -3,10 +3,10 @@ const { createCookie } = require('../utillity/authentication')
 const checkUser = require('../database/queries/cheakUser')
 
 exports.get = (request, response) => {
-   if (request.cookies.auth) {
-      response.redirect('/')
-   }
-   response.render('login', { js: './public/js/domLogin.js', css: './public/css/login.css' });
+    if (request.cookies.auth) {
+        response.redirect('/')
+    }
+    response.render('login', { js: './js/domLogin.js', css: './css/login.css', layout: 'loginSignupMain', title: 'SignUp' });
 };
 
 exports.post = (request, response) => {
