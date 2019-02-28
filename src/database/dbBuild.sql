@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS users ,images;
 
 create TABLE users(
     id serial primary key,
-    username varchar(30),
-    name varchar(50),
-    password varchar
+    username varchar(250),
+    name varchar(250),
+    password text
 );
 create TABLE images(
     id serial primary key,

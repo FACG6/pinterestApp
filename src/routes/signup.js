@@ -1,10 +1,7 @@
-const express = require('express');
 const bcrypt = require('bcryptjs');
-const cookieParser = require('cookie-parser');
 const { checkIfUserExist } = require('../database/queries/cheakUser');
 const { createCookie } = require('../utillity/authentication')
 const {addUser} = require('../database/queries/addData')
-const router = express.Router();
 
 const handler = (req, res) => {
   if (req.cookies.auth) {
@@ -29,7 +26,6 @@ const confirmedHandler = (req, res) => {
             bcrypt.hash(allData.password, salt, (eror, hashed) => {
               if (eror) res.send('Try again please');
               addUser(allData.username, hashed, (error, result) => {
-                console.log(result);
                 if (error) res.send('Try again please');
                 res.cookie('jwt', createCookie(result.id), { maxAge: 972592207599 });
                 res.redirect('/');

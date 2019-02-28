@@ -4,7 +4,6 @@ const checkIfUserExist = (username, cb) => {
   const sql = 'SELECT username,id FROM users WHERE username = ($1)';
   const values = [username];
   dbconnection.query(sql, values, (err, result) => {
-    console.log(result.rows[0]);
     cb(err, result.rows[0]);
   });
 };
