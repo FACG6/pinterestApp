@@ -14,14 +14,9 @@
 	</header>
 
 	<main>
-		<input type="text" name="url" class="imgUrl">
-		<button id="addImgeBtn">add img</button>
-		{{!-- {{#each res}}
-		<img class="imgs" src="{{res.url}}">
-		{{#if id === res.id}}
-		<button>delete</button>
-		{{/if}}
-		{{/each}} --}}
+		{{#each ruesult}}
+		<img class="imgs" src={{link}}>
+		{{/each}}
 	</main>
 
 	<footer>
