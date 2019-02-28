@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const url = require('url');
 require('dotenv').config();
 
-const DB_URL = process.env.DB_local_URL;
+const DB_URL = process.env.DATABASE_URL;
 
 const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
