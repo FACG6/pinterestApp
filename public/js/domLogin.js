@@ -17,6 +17,5 @@ logIn.addEventListener('click', (t) => {
             }
         })
         .then(() => window.location.href = '/')
-        .catch(err => console.log(err));
 })
 // window.location ='/'
